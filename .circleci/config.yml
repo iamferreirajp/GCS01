@@ -40,9 +40,14 @@ jobs:
       - store_artifacts:
           path: test-reports
           destination: test-reports
-
-deployment:
-  staging:
-    branch: master
-    heroku:
-      appname: gcs01-iamferreirajp-circleci
+      
+      - run: bash .circleci/setup-heroku.sh
+      - add_ssh_keys:
+          fingerprints:
+            - "AAAAB3NzaC1yc2EAAAADAQABAAABAQCthqZpqAbVghDWpER6wOhgsQDSm"
+      - deploy:
+          name: Deploy Master to Heroku
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              git push heroku master -f
+            fi
