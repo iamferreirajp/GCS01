@@ -1,0 +1,15 @@
+language: python
+python:
+- '3.5'
+install:
+- pip install django flake8
+script:
+- python manage.py test
+- flake8 --exclude polls/migrations/,manage.py  .
+deploy:
+  provider: heroku
+  api_key:
+    secure: GrLK89uRLYnvsy9sDkvixFKGAXkoVVKHBfRge2vu+RCLT1rVMH8ds1UFo3hNb8Y2cQrLKlyDAV/1s0KsVucew2/uhOJa2d2GaKl8ZYIws72sHN3gBNpDkzXTQTE45eOE4+IApQ74ao0BLF5RSnzh3ShvAhn65puOW7y/+lCILf9EdB1pI5RN4sHvuoZQtB79i2Zz0dkv6usGF1JiVjBFZwTWpSHbLD3mXiB7fDs0DPQ6CDCKSg++gUtfeqJvKGaJbkhw8b6hNMeHGB2I2w7a3xpwJ9kIJ52P1i/y7OsAZtPyEMvox1Y0Bu+brPMBFmelCBqLNG1Csb5CbgqMrKFptrEraPCpvSDcF/jGDJUO4OVL0bS58zIQ38KxJRmpa0/THs2JQggoXgmAwa5yoXMVkA2A2fqklcZz3ANBVuIESE7X1CWNivfPPmcRwRDl9pOFTk1RICN6m45LW4Zcv6B/3B2wyQha4HT8n+qOf3tvT9nj0DpLqIf9Urae9iII9ukmLJbkNZYs0Nu2hSxG3u/64m1pukNdRK6Ua95Mikqir5oACsV/pljFXCzI3k89LqIMzo/4dhTNglLlV/GLVlv0oGWT06cDyPMnbTQjvW2kftSJMwMekTIUXJuzAnSa8Qt2p5+5gJmDRQbqXa8UZF6pSoYredYteWj2TAiIrzQtCDI=
+  app: gcs01-iamferreirajp-travis
+  on:
+    repo: iamferreirajp/GCS01
