@@ -1,1 +1,1 @@
-web: gunicorn zapay_web.wsgi --log-file -
+web: gunicorn djangobasico.wsgi --log-file -

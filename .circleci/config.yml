@@ -25,6 +25,8 @@ jobs:
           command: |
             sudo apt-get install python-pip
             sudo pip install django flake8
+            sudo pip install gunicorn
+            sudo pip install dj-database-url
 
       - run:
           name: migrate
