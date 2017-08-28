@@ -257,3 +257,5 @@ bower.json
 .vagrant/
 
 # End of https://www.gitignore.io/api/c,c++,rails,cmake,linux,django,python,vagrant
+
+djangobasico/staticfiles/
